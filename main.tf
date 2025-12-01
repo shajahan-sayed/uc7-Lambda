@@ -38,5 +38,5 @@ resource "aws_lambda_function" "lambda_func" {
    filename         = var.lambda_zip_file
    source_code_hash = filebase64sha256(var.lambda_zip_file)
 }
-
+#make a project on if file upload in s3 must trigger lambda and runs function.
   
