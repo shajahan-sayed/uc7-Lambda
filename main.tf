@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "lambda_assume" {
 
 
          principals {
-              type = "Services"
+              type = "Service"
               identifiers = ["lambda.amazonaws.com"]
          }
 
