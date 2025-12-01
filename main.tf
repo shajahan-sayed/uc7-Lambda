@@ -17,12 +17,12 @@ data "aws_iam_policy_document" "lambda_assume" {
 
 resource "aws_iam_role" "lambda_fun" {
     name = "lambda_fun"
-    assume_policy = aws_iam_policy_document.lambda.assume.json
+    assume_role_policy = aws_iam_policy_document.lambda.assume.json
 }
 
 #creating policy and attaching it to role
 resource "aws_iam_role_policy_attachment" "lambda_policy" {
-  role = aws_iam_role.lambda.fun.name
+  role = aws_iam_role.lambda_fun.name
   policy = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
