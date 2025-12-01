@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "lambda_assume" {
 
 
          principals {
-              type = "services"
+              type = "Services"
               identifiers = ["lambda.amazonaws.com"]
          }
 
@@ -23,7 +23,7 @@ resource "aws_iam_role" "lambda_fun" {
 #creating policy and attaching it to role
 resource "aws_iam_role_policy_attachment" "lambda_policy" {
   role = aws_iam_role.lambda_fun.name
-  policy = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 #creating instance profile no need because lambda directly assume the role and ec2 needs the instance profile
